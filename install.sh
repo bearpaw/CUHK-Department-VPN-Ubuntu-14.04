@@ -20,26 +20,26 @@ InstallCFGs() {
     Backup /etc/ppp/pap-secrets
 
     cd conf
-    echo "include $STRONGSWAN_PATH/ipsec.d/ee/ee.conf" >> $STRONGSWAN_PATH/ipsec.conf
-    echo "include $STRONGSWAN_PATH/ipsec.d/ee/ee.secrets" >> $STRONGSWAN_PATH/ipsec.secrets
-    mkdir -p $STRONGSWAN_PATH/ipsec.d/ee
-    cp ee.conf $STRONGSWAN_PATH/ipsec.d/ee/ee.conf
-    cp ee.secrets $STRONGSWAN_PATH/ipsec.d/ee/ee.secrets
+    echo "include $STRONGSWAN_PATH/ipsec.d/cse/cse.conf" >> $STRONGSWAN_PATH/ipsec.conf
+    echo "include $STRONGSWAN_PATH/ipsec.d/cse/cse.secrets" >> $STRONGSWAN_PATH/ipsec.secrets
+    mkdir -p $STRONGSWAN_PATH/ipsec.d/cse
+    cp cse.conf $STRONGSWAN_PATH/ipsec.d/cse/cse.conf
+    cp cse.secrets $STRONGSWAN_PATH/ipsec.d/cse/cse.secrets
     cp xl2tpd.conf /etc/xl2tpd/xl2tpd.conf
     cp options /etc/ppp/options
     cp options.xl2tpd /etc/ppp/options.xl2tpd
 }
 
 InstallUserInfo() {
-    echo "$1 vpn.ee.cuhk.edu.hk \"$2\"" >> /etc/ppp/pap-secrets
+    echo "$1 vpn3.cse.cuhk.edu.hk \"$2\"" >> /etc/ppp/pap-secrets
     echo "name $1" >> /etc/ppp/options.xl2tpd
 }
 
 PostInstall() {
     ChPerm $STRONGSWAN_PATH/ipsec.conf
     ChPerm $STRONGSWAN_PATH/ipsec.secrets 600
-    ChPerm $STRONGSWAN_PATH/ipsec.d/ee/ee.conf
-    ChPerm $STRONGSWAN_PATH/ipsec.d/ee/ee.secrets 600
+    ChPerm $STRONGSWAN_PATH/ipsec.d/cse/cse.conf
+    ChPerm $STRONGSWAN_PATH/ipsec.d/cse/cse.secrets 600
     ChPerm /etc/xl2tpd/xl2tpd.conf
     ChPerm /etc/ppp/pap-secrets 600
     ChPerm /etc/ppp/options
