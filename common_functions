@@ -1,0 +1,46 @@
+STEP=0
+Step() {
+    STEP=$(($STEP + 1))
+    echo -ne "\033[1m"
+    echo "=================================================="
+    echo "Step $STEP: $1"
+    echo "=================================================="
+    echo -ne "\033[0m"
+}
+
+Message() {
+    echo -e "\033[1m$1\033[0m"
+}
+
+Done() {
+    echo -e "\033[1;32mStep $STEP done.\033[0m"
+    echo ""
+}
+
+Error() {
+    echo -e "\033[1;31m$1\033[0m"
+    echo ""
+}
+
+Backup() {
+    local f=$1.bak.$(date +%Y%m%d%H%M)
+    if [[ $# != 1 ]]; then
+        return 1
+    fi
+    cp $1 $f
+}
+
+ChPerm() {
+    declare permission
+    if [[ $# == 1 ]]; then
+        permission=644
+    elif [[ $# == 2 ]]; then
+        permission=$2
+    else
+        return 1
+    fi
+    chown root $1
+    chmod $permission $1
+}
+
+# vim: set filetype=sh:

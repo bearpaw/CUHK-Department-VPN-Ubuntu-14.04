@@ -1,0 +1,11 @@
+lock
+noauth
+refuse-chap
+refuse-mschap
+refuse-mschap-v2
+debug
+nobsdcomp
+nodeflate
+noaccomp
+nopcomp
+novj
