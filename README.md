@@ -2,6 +2,11 @@
 
 This script is for connecting to the CUHK department VPN (currently support CSE / EE / IE) on Ubuntu 14.04.
 
+There are three branches of this repository
+- master: EE VPN
+- cse: CSE VPN
+- ie: IE VPN
+
 For the first time connecting to VPN, please run:
 
 ```sh
