@@ -80,8 +80,8 @@ Step "Install config files"
     InstallCFGs
 Done
 
-Step "Set up CSE ID and password"
-    Message "Please enter your CSE ID and password."
+Step "Set up EE ID and password"
+    Message "Please enter your EE ID and password."
     Message "Note that for secure reason, the password will not be shown."
     echo ""
     echo -n "ID: "
